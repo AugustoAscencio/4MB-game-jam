@@ -1,3 +1,4 @@
+
 var WIDTH = 400 //This line is #330
 var HEIGHT = 240
 var TITLE= "4MB-game-jam"
@@ -12,6 +13,11 @@ var GUY_MOVE_DISTANCE = 0.2
 var GUY_DIAGONAL_MOVE_DISTANCE = Math.sin(45) * 0.2
 var DONE = false
 
+var GUY_WIDTH = 16
+var GUY_HEIGHT = 16
+
+
+
 class Game {
     static init(args) {
         Engine.init(WIDTH/2,HEIGHT/2,TITLE)
@@ -19,7 +25,6 @@ class Game {
        
     }
     static tick(dt) {
-        
         DIFF = System.clock - TIME
         if (DIFF * 1000 > WAIT) {
             Guy.draw_guy()
@@ -28,11 +33,12 @@ class Game {
         TIME = System.clock
     }   
 }
+
 class Guy {
     static draw_guy() {
         Draw.clear()
-
         Surface.draw(Surface.new_from_png("sprites/Soldier1.png"), GUY_X, GUY_Y,1)
+        Inp
         if (Input.is_key_held(Input.get_keycode("S")) && Input.is_key_held(Input.get_keycode("D")) && !DONE) {
             GUY_Y = GUY_Y + GUY_DIAGONAL_MOVE_DISTANCE
             GUY_X = GUY_X + GUY_DIAGONAL_MOVE_DISTANCE
